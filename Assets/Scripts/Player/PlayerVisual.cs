@@ -66,6 +66,7 @@ public class PlayerVisual : MonoBehaviour
     {
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) return;
         Oscillator.StartOscillator(15);
+        m_animator.SetTrigger("isAttack");
     }
 
 

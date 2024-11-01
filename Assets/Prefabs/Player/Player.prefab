@@ -165,7 +165,19 @@ MonoBehaviour:
     m_ActionId: 5bb89447-883c-4072-9887-706add5272b3
     m_ActionName: PlayerController/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2790354785069309952}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInputAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 591f4ff5-e9e8-4c53-a57c-ded40b342c6b
     m_ActionName: PlayerController/Attack
   m_NeverAutoSwitchControlSchemes: 0
@@ -328,8 +340,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100058, guid: 9ce6002518e821e43b4f97c76700fbac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 64876611650221329}
   m_SourcePrefab: {fileID: 100100000, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
+--- !u!1 &7779906793404270334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100058, guid: 9ce6002518e821e43b4f97c76700fbac,
+    type: 3}
+  m_PrefabInstance: {fileID: 7779906793404301348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &64876611650221329
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779906793404270334}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.6602082, z: 1.0473938}
+  m_Center: {x: 0, y: 0.8199427, z: 1.0963275}
 --- !u!4 &7779906793404439198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400058, guid: 9ce6002518e821e43b4f97c76700fbac,

@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     public void OnInputAction(InputAction.CallbackContext context)
     {
         if (context.action.triggered) {
-        
+            OnAttacked?.Invoke();
         }
     }
 
@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
 
         OnJustGrounded += m_playerVisual.JustGrounded;
         OnMoved += m_playerVisual.MoveAnimation;
+        OnAttacked += m_playerVisual.AttackAnimation;
 
 
     }
