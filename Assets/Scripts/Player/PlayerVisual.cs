@@ -109,5 +109,7 @@ public class PlayerVisual : MonoBehaviour
         }
     }
 
+    public GameObject GetModel() => m_model;
+
     #endregion
 }

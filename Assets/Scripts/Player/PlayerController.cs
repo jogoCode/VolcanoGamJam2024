@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerMovement m_playerMovement;
     [SerializeField] PlayerVisual m_playerVisual;
     PlayerStateManager m_playerStateManager;
+    PlayerDistance m_playerDistance;
 
 
     Vector2 m_inputDir = Vector2.zero;
@@ -23,12 +24,19 @@ public class PlayerController : MonoBehaviour
 
     public event Action OnJustGrounded;
     public event Action OnJumped;
-    public event Action OnAttacked;
+    public event Action OnAction;
     public event Action<float,float> OnMoved;
     public event Action OnDashed;
     public event Action<bool> OnReady;
 
 
+
+    WeaponMode m_currentWeaponMode = WeaponMode.MELEE;
+    public enum WeaponMode
+    {
+        MELEE,
+        DISTANCE
+    }
 
 
     public bool IsReady
@@ -65,23 +73,21 @@ public class PlayerController : MonoBehaviour
 
     public void OnInputAction(InputAction.CallbackContext context)
     {
-        if (context.action.triggered) {
-            OnAttacked?.Invoke();
+        if (context.action.triggered){
+            OnAction?.Invoke();
         }
     }
 
     public void OnInputDash(InputAction.CallbackContext context)
     {
-        if (context.action.triggered)
-        {
+        if (context.action.triggered){
             OnDashed?.Invoke();
         }
     }
 
     public void OnInputReady(InputAction.CallbackContext context)
     {
-        if (context.action.triggered)
-        {
+        if (context.action.triggered){
             m_isReady = !m_isReady;
             OnReady?.Invoke(m_isReady);
         }
@@ -94,6 +100,7 @@ public class PlayerController : MonoBehaviour
         m_playerMovement = GetComponent<PlayerMovement>();
         m_playerVisual = GetComponent<PlayerVisual>();
         m_playerStateManager = GetComponentInChildren<PlayerStateManager>();
+        m_playerDistance = GetComponentInChildren<PlayerDistance>();
 
        
     
@@ -101,7 +108,8 @@ public class PlayerController : MonoBehaviour
 
         OnJustGrounded += m_playerVisual.JustGrounded;
         OnMoved += m_playerVisual.MoveAnimation;
-        OnAttacked += m_playerVisual.AttackAnimation;
+        OnAction += m_playerVisual.AttackAnimation;
+        OnAction += m_playerDistance.CreateProjectile;
 
 
     }
@@ -157,6 +165,8 @@ public class PlayerController : MonoBehaviour
     public float GetVerticalVelY() => m_playerMovement.GetVerticalVelY();
 
     public bool GetJumped() => m_jumped;
+
+    public GameObject GetModel() => m_playerVisual.GetModel();
     #endregion
 
 }
