@@ -214,16 +214,16 @@ public class PlayerMovement : MonoBehaviour
         m_coyoteTimer = m_coyoteTime;
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject != gameObject) //ON hit
-        {
-            Quaternion otherRot = other.transform.rotation;
-            Vector3 dir = otherRot * Vector3.forward;
-            Debug.Log(dir);
-            Hit(dir);
-        }
-    }
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject != gameObject) //ON hit
+    //    {
+    //        Quaternion otherRot = other.transform.rotation;
+    //        Vector3 dir = otherRot * Vector3.forward;
+    //        Debug.Log(dir);
+    //        Hit(dir);
+    //    }
+    //}
 
 
     #region Get Variables
