@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerMovement m_playerMovement;
     [SerializeField] PlayerVisual m_playerVisual;
     PlayerStateManager m_playerStateManager;
+    PlayerDistance m_playerDistance;
 
 
     Vector2 m_inputDir = Vector2.zero;
@@ -21,14 +23,26 @@ public class PlayerController : MonoBehaviour
     bool m_jumped = false;
 
 
+    Vector3 m_mousePos;
+    string m_controllerMode;
+
     public event Action OnJustGrounded;
     public event Action OnJumped;
-    public event Action OnAttacked;
+    public event Action OnAction;
+    public event Action OnDistance;
     public event Action<float,float> OnMoved;
     public event Action OnDashed;
     public event Action<bool> OnReady;
 
+    public event Action OnWeaponModeChanged;
 
+
+    WeaponMode m_currentWeaponMode = WeaponMode.MELEE;
+    public enum WeaponMode
+    {
+        MELEE,
+        DISTANCE
+    }
 
 
     public bool IsReady
@@ -38,6 +52,11 @@ public class PlayerController : MonoBehaviour
     public int PlayerId
     {
         get { return m_playerId;}
+    }
+
+    public string ControllerMode
+    {
+        get { return m_controllerMode; }
     }
 
     public PlayerVisual PlayerVisual
@@ -65,23 +84,36 @@ public class PlayerController : MonoBehaviour
 
     public void OnInputAction(InputAction.CallbackContext context)
     {
-        if (context.action.triggered) {
-        
+        if (context.action.triggered){
+            OnAction?.Invoke();
         }
     }
 
     public void OnInputDash(InputAction.CallbackContext context)
     {
-        if (context.action.triggered)
-        {
+        if (context.action.triggered){
             OnDashed?.Invoke();
+        }
+    }
+
+    public void OnInputDistance(InputAction.CallbackContext context)
+    {
+        var control = context.control;
+        m_controllerMode = control.ToString();
+        if (context.action.IsPressed())
+        {
+            SetWeaponMode(WeaponMode.DISTANCE);
+            DistanceMode();
+        }
+        if (context.action.WasReleasedThisFrame())
+        {
+            SetWeaponMode(WeaponMode.MELEE);
         }
     }
 
     public void OnInputReady(InputAction.CallbackContext context)
     {
-        if (context.action.triggered)
-        {
+        if (context.action.triggered){
             m_isReady = !m_isReady;
             OnReady?.Invoke(m_isReady);
         }
@@ -94,15 +126,24 @@ public class PlayerController : MonoBehaviour
         m_playerMovement = GetComponent<PlayerMovement>();
         m_playerVisual = GetComponent<PlayerVisual>();
         m_playerStateManager = GetComponentInChildren<PlayerStateManager>();
+        m_playerDistance = GetComponentInChildren<PlayerDistance>();
 
-       
+
+        OnWeaponModeChanged += WeaponModeChanged;
     
         OnDashed += m_playerMovement.Dash;
 
         OnJustGrounded += m_playerVisual.JustGrounded;
         OnMoved += m_playerVisual.MoveAnimation;
+        OnAction += m_playerVisual.AttackAnimation;
+        OnAction += m_playerDistance.CreateProjectile;
 
 
+    }
+
+    public void Update()
+    {
+        m_mousePos = new Vector3(RaycastFromMousePosition().x, 0 , RaycastFromMousePosition().z).normalized;
     }
 
     public void Jump()
@@ -137,10 +178,44 @@ public class PlayerController : MonoBehaviour
         OnJustGrounded?.Invoke();
     }
 
+    public Vector3 RaycastFromMousePosition()
+    {
+        Vector3 mousePosition = Input.mousePosition;     
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {  
+           return hit.point;
+        }
+        return Vector3.zero;
+    }
 
- 
 
-  
+    void DistanceMode()
+    {    
+        GetPlayerVisual().SetPlayerDir(m_mousePos.normalized);
+
+    }
+
+
+    void WeaponModeChanged()
+    {
+        switch (m_currentWeaponMode)
+        {
+            case WeaponMode.MELEE:
+                GetPlayerStateManager().SetState(PlayerStateManager.PlayerStates.IDLE);
+                break;
+            case WeaponMode.DISTANCE:
+                GetPlayerStateManager().SetState(PlayerStateManager.PlayerStates.DISTANCE);
+                break;
+        }
+    }
+
+    public void SetWeaponMode(WeaponMode newMode)
+    {
+        m_currentWeaponMode = newMode;
+        OnWeaponModeChanged?.Invoke();
+    }
 
     #region ACCESORS
     public PlayerVisual GetPlayerVisual() => m_playerVisual;
@@ -156,6 +231,8 @@ public class PlayerController : MonoBehaviour
     public float GetVerticalVelY() => m_playerMovement.GetVerticalVelY();
 
     public bool GetJumped() => m_jumped;
+
+    public GameObject GetModel() => m_playerVisual.GetModel();
     #endregion
 
 }

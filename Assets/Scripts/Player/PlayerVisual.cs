@@ -54,9 +54,15 @@ public class PlayerVisual : MonoBehaviour
         {
             m_playerDir = new Vector3(m_playerController.GetInputDir().x, 0, m_playerController.GetInputDir().y);
             m_targetRotation = Quaternion.LookRotation(m_playerDir);
+            m_model.transform.rotation = Quaternion.Slerp(m_model.transform.rotation, m_targetRotation, m_rotationSpeed * Time.deltaTime);
+        }
+        else if(m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE && m_playerController.ControllerMode.Contains("Mouse"))
+        {
+            m_targetRotation = Quaternion.LookRotation(m_playerDir);
+            m_model.transform.LookAt(m_playerController.RaycastFromMousePosition());
         }
        
-        m_model.transform.rotation = Quaternion.Slerp(m_model.transform.rotation, m_targetRotation, m_rotationSpeed * Time.deltaTime);
+       
     }
 
 
@@ -64,14 +70,16 @@ public class PlayerVisual : MonoBehaviour
 
     public void AttackAnimation()
     {
+        if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) return;
         Oscillator.StartOscillator(15);
+        m_animator.SetTrigger("isAttack");
     }
 
 
     public void MoveAnimation(float x,float speedPercent) // x = xvel for horizontalAnim . y = yVel for verticalAnim . speedPercent = Speed ratio
     {
-
+        if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
         float speed = speedPercent / SPEED_ANIM_RATIO;
         if(x == 0)
         {
@@ -83,6 +91,12 @@ public class PlayerVisual : MonoBehaviour
         m_animator.SetFloat("Movement", x);
     }
 
+
+    public void OnDistanceAnimation()
+    {
+
+    }
+
     public void VerticalMoveAnimation()
     {
         PlayerMovement playerMovement = m_playerController.GetPlayerMovement();
@@ -92,6 +106,11 @@ public class PlayerVisual : MonoBehaviour
 #endregion
 
 
+
+    public void SetPlayerDir(Vector3 newDir)
+    {
+        m_playerDir = newDir;
+    }
 
     #region
     public void JustGrounded()
@@ -107,6 +126,8 @@ public class PlayerVisual : MonoBehaviour
             
         }
     }
+
+    public GameObject GetModel() => m_model;
 
     #endregion
 }

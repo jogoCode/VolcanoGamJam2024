@@ -14,9 +14,11 @@ public class PlayerStateManager : MonoBehaviour
         MOVE,
         JUMP,
         FALL,
-        ATK
+        ATK,
+        DISTANCE,
+        POSTATK
     }
-
+    //TODO RAJOUTER LE POST ATK STATE
 
     void Start()
     {

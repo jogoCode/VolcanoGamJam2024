@@ -118,9 +118,10 @@ GameObject:
   - component: {fileID: 3621151657173822890}
   - component: {fileID: 7213441315416573967}
   - component: {fileID: 6237727880949837241}
+  - component: {fileID: 6837422514065220150}
   m_Layer: 0
   m_Name: EnemyCAC
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,6 +229,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6837422514065220150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6915123009157320895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bb30117e89a9944a2efba26277a359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_target: {fileID: 8822489480309942624}
+  m_spring: 500
+  m_damp: 17
 --- !u!1 &8822489480309942624
 GameObject:
   m_ObjectHideFlags: 0
