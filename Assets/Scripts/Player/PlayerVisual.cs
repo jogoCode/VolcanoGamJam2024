@@ -17,6 +17,8 @@ public class PlayerVisual : MonoBehaviour
     public const float SPEED_ANIM_RATIO = 10;
 
 
+    GameObject m_sarbacane;
+
    
 
    
@@ -62,6 +64,7 @@ public class PlayerVisual : MonoBehaviour
         }
         else if(m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE && m_playerController.ControllerMode.Contains("Mouse"))
         {
+            
             //m_targetRotation = Quaternion.LookRotation(m_playerDir);
             m_model.transform.LookAt(new Vector3(m_playerController.RaycastFromMousePosition().x,0, m_playerController.RaycastFromMousePosition().z));
         }
@@ -98,7 +101,11 @@ public class PlayerVisual : MonoBehaviour
 
     public void OnDistanceAnimation()
     {
-
+        m_animator.SetBool("isDistance",true);
+    }
+    public void OffDistanceAnimation()
+    {
+        m_animator.SetBool("isDistance",false);
     }
 
     public void OnDashAnimation()
