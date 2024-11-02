@@ -168,7 +168,7 @@
                     "name": "",
                     "id": "1dd8d8d7-4536-4d17-8f57-016dc301eede",
                     "path": "<Gamepad>/rightTrigger",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Controller",
                     "action": "SwitchWeaponMode",
