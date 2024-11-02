@@ -135,11 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7261355650459732583, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 9075495842808399907, guid: dd6c6d844b472df4d9037790fe12e295,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,11 +188,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7261355650459732583, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1118408811}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6c6d844b472df4d9037790fe12e295, type: 3}
 --- !u!1 &410087039
 GameObject:
@@ -416,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 454861355}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.331393, y: 0.12840979, z: 0.09647161}
+  m_LocalPosition: {x: 0.84, y: 0.12840979, z: 4.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -630,21 +621,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 279400014}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1118408811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118408803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a0f1e43ec1cc6408019093a74ac58c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 10
-  _invincibilityFrames: 1
-  _invincible: 0
 --- !u!1 &1675285995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1031056278159538910, guid: dd6c6d844b472df4d9037790fe12e295,
@@ -857,6 +833,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCAC
       objectReference: {fileID: 0}
+    - target: {fileID: 6915123009157320895, guid: 60df1ab291136274ca891e3e7c159260,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -874,6 +855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyRANGE
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756520423113839759, guid: 0d17dc21328be114eab1e74f7ed4386c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202584086812131018, guid: 0d17dc21328be114eab1e74f7ed4386c,
         type: 3}
