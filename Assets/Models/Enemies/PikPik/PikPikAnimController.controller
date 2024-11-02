@@ -58,7 +58,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RangerAnimController
+  m_Name: PikPikAnimController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Movement
@@ -95,14 +95,6 @@ BlendTree:
   m_Name: Movement
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: e6b4adccd09b05443b56623d95f854c2, type: 2}
-    m_Threshold: -1
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Movement
-    m_Mirror: 0
-  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: e75d916ed17a99746a5cd84a7881726d, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -111,7 +103,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9ab7a196868c0844696045f3a9b9e453, type: 2}
+    m_Motion: {fileID: 7400000, guid: 0c3b407dc4a340546a39e4d26c61a8a4, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1

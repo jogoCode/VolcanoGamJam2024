@@ -363,7 +363,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4889459913301337416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -458,6 +458,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7675318033852842480}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 72a5b7cb41051564eb159f76e4227903,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72a5b7cb41051564eb159f76e4227903,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 72a5b7cb41051564eb159f76e4227903,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 72a5b7cb41051564eb159f76e4227903,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -778,6 +793,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -41.56781
       objectReference: {fileID: 0}
+    - target: {fileID: 2978082807130758692, guid: 72a5b7cb41051564eb159f76e4227903,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 430e0ba298daf6a4097713e0a124d3ab, type: 2}
     - target: {fileID: 4060293586433082712, guid: 72a5b7cb41051564eb159f76e4227903,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

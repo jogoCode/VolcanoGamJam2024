@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|ArmatureAction
+      name: Dash
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
-      firstFrame: 0
-      lastFrame: 239
+      firstFrame: 210
+      lastFrame: 214
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -101,6 +101,12 @@ public class PlayerVisual : MonoBehaviour
 
     }
 
+    public void OnDashAnimation()
+    {
+        if(m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DASH)return;
+        m_animator.SetTrigger("isDash");
+    }
+
     public void VerticalMoveAnimation()
     {
         PlayerMovement playerMovement = m_playerController.GetPlayerMovement();

@@ -168,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
         if(m_isDashing)
         {    
             m_characterController.Move(m_dashDir * m_dashSpeed * Time.deltaTime);
+            m_playerController.GetPlayerVisual().OnDashAnimation();
         }
 
     }
