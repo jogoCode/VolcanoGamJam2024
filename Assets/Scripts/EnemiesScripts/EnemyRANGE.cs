@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
 
-public class EnemyRANGE : MonoBehaviour
+public class EnemyRANGE : Enemy
 {
-    [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _safeZone;
     [SerializeField] private bool _inSafeZone;
     [SerializeField] private GameObject _projectile;
@@ -16,6 +14,8 @@ public class EnemyRANGE : MonoBehaviour
 
     private void Start()
     {
+        base.Start();
+        _safeZone = _player.GetComponentInChildren<SphereCollider>().gameObject;
         _inSafeZone = false;
         _canShoot = true;
     }
@@ -30,11 +30,15 @@ public class EnemyRANGE : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         _inSafeZone = true;
+        if (other.gameObject.GetComponent<PlayerProjectile>() != null) return;
         if (other.gameObject == _safeZone)
         {
             var direction =  _player.transform.position - gameObject.transform.position ;
-            
-            _agent.SetDestination(transform.position - direction);
+
+            if (_agent.enabled == true)
+            {
+                _agent.SetDestination(transform.position - direction);
+            }
             StartCoroutine(Shoot());
         }
     }

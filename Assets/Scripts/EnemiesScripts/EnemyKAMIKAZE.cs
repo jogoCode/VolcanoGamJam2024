@@ -1,17 +1,16 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyKAMIKAZE : MonoBehaviour
+public class EnemyKAMIKAZE : Enemy
 {
-    [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private GameObject _player;
     [SerializeField] private float _countDown;
     [SerializeField] private bool _touché;
     [SerializeField] private GameObject _explosion;
 
     private void Start()
     {
-        _touché = false;
+        base.Start();
+        _touché = false;    
     }
 
     private void Update()
@@ -20,11 +19,8 @@ public class EnemyKAMIKAZE : MonoBehaviour
         {
             _countDown -= Time.deltaTime;
         }
-        else
-        {
-            _agent.SetDestination(_player.transform.position);
-        }
-
+        base.Update();
+  
         if (_countDown <= 0)
         {
             Instantiate(_explosion, transform.position + new Vector3(0,1,0), transform.rotation);

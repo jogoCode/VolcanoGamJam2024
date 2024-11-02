@@ -285,3 +285,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_projSpeed: 25
+  m_projDamage: 15

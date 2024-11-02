@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerVisual m_playerVisual;
     PlayerStateManager m_playerStateManager;
     PlayerDistance m_playerDistance;
+    PlayerMelee m_playerMelee;
 
 
     Vector2 m_inputDir = Vector2.zero;
@@ -95,7 +97,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.action.triggered){
             OnDashed?.Invoke();
-            Debug.Log("zizizi");
         }
     }
 
@@ -130,6 +131,7 @@ public class PlayerController : MonoBehaviour
         m_playerVisual = GetComponent<PlayerVisual>();
         m_playerStateManager = GetComponentInChildren<PlayerStateManager>();
         m_playerDistance = GetComponentInChildren<PlayerDistance>();
+        m_playerMelee = GetComponentInChildren<PlayerMelee>();
 
 
         OnWeaponModeChanged += WeaponModeChanged;
@@ -141,6 +143,7 @@ public class PlayerController : MonoBehaviour
         OnAction += m_playerVisual.AttackAnimation;
 
         OnAction += m_playerDistance.CreateProjectile;
+        OnAction += m_playerMelee.Attack;
 
 
     }
@@ -219,6 +222,11 @@ public class PlayerController : MonoBehaviour
     {
         m_currentWeaponMode = newMode;
         OnWeaponModeChanged?.Invoke();
+    }
+
+    public void ApplyImpulse(Vector3 direction,float impulseForce)
+    {
+        m_playerMovement.ApplyImpulse(direction, impulseForce);
     }
 
     #region ACCESORS

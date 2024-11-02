@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6267118119180688283}
   - component: {fileID: 281189419781801050}
   - component: {fileID: 7144566959102805074}
+  - component: {fileID: 4983400944200024904}
   m_Layer: 0
   m_Name: EnemyRANGE
   m_TagString: Enemy
@@ -53,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 1923360825676876341}
   _player: {fileID: 0}
+  _damages: 0
   _safeZone: {fileID: 0}
   _inSafeZone: 0
   _projectile: {fileID: 3788171240265731548, guid: 0eb8eeaea1d28274e9bc0dcc51505d5e,
@@ -107,7 +109,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &6267118119180688283
 CapsuleCollider:
@@ -146,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 30
   _maxHealth: 30
-  _invincibilityFrames: 0
+  _invincibilityFrames: 0.1
   _invincible: 0
 --- !u!114 &7144566959102805074
 MonoBehaviour:
@@ -163,6 +165,29 @@ MonoBehaviour:
   m_target: {fileID: 3083859678745455284}
   m_spring: 500
   m_damp: 17
+--- !u!136 &4983400944200024904
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756520423113839759}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3083859678745455284
 GameObject:
   m_ObjectHideFlags: 0
