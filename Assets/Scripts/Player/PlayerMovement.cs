@@ -86,6 +86,19 @@ public class PlayerMovement : MonoBehaviour
         ImpulseHandler();
         bool isGrounded =  m_characterController.isGrounded;
         pc.PlayerVisual.CheckGrounded(m_characterController.isGrounded);
+
+        if (!m_characterController.isGrounded)
+        {
+            gravity();
+            m_coyoteTimer -= Time.deltaTime;
+        }
+        else
+        {
+
+            m_vSpeed = 0f;
+            ResetCoyoteTimer();
+        }
+
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) return;
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.POSTATK) return;
@@ -95,17 +108,6 @@ public class PlayerMovement : MonoBehaviour
 
         }
         m_wasGrounded = isGrounded;
-
-
-        if (!m_characterController.isGrounded){      
-            gravity();
-            m_coyoteTimer -= Time.deltaTime;
-        }else{   
-            
-            m_vSpeed = 0f;
-            ResetCoyoteTimer();
-        }
-
         HandleJumpBuffer();
         Movement(dir, m_speed);       
     }
@@ -130,7 +132,6 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyImpulse(Vector3 direction,float impulseForce)
     {
         // Ajouter l'impulsion dans la direction donnée
-        Debug.Log("oko "+direction);
         m_velocity = direction.normalized * impulseForce;
     }
 

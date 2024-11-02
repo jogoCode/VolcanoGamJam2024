@@ -36,6 +36,7 @@ public class FeedBackManager : MonoBehaviour
 
     public void FreezeFrame(float duration, float timeScale)
     {
+        if (Time.timeScale < 1) return;
         m_FreezeFrameCoroutine = StartCoroutine(FreezeFrameCoroutine(duration,timeScale));
     }
 

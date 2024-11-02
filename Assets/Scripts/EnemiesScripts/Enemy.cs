@@ -1,11 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyCAC : Enemy { 
+public class Enemy : MonoBehaviour
+{
+    [SerializeField] protected NavMeshAgent _agent;
+    [SerializeField] protected GameObject _player;
+    [SerializeField] protected int _damages;
 
+    virtual protected void Start()
+    {
 
+        _player = FindObjectOfType<PlayerController>().gameObject;
+    }
 
-    private void Update()
+    protected void Update()
     {
         if (_agent.enabled == true)
         {
@@ -15,14 +25,15 @@ public class EnemyCAC : Enemy {
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             HealthSysteme playerHealth = other.gameObject.GetComponent<HealthSysteme>();
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
-            playerController.ApplyImpulse(transform.forward,15f);
+            playerController.ApplyImpulse(transform.forward, 15f);
             playerHealth.TakeDamages(_damages);
 
-      
+
         }
     }
+
 }
