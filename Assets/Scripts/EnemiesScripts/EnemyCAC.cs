@@ -18,6 +18,8 @@ public class EnemyCAC : MonoBehaviour
         if(other.tag == "Player")
         {
             HealthSysteme playerHealth = other.gameObject.GetComponent<HealthSysteme>();
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            playerController.ApplyImpulse(transform.forward,15f);
             playerHealth.TakeDamages(_damages);
 
       

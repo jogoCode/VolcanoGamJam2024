@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PlayerMelee : MonoBehaviour
 {
+    PlayerController m_playerController;
     [SerializeField] int m_playerDamage = 2;
 
 
+    public void Start()
+    {
+        m_playerController = GetComponentInParent<PlayerController>();
+    }
+
     public void Attack()
     {
-        PlayerController playerController = GetComponentInParent<PlayerController>();
-        playerController.GetPlayerMovement().ApplyImpulse(playerController.GetModel().transform.forward); // Appliquer l'impulsion vers l'avant
+        Debug.Log("zizi");
+        if(m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) return;
+        m_playerController.GetPlayerMovement().ApplyImpulse(m_playerController.GetModel().transform.forward, 15); // Appliquer l'impulsion vers l'avant
     }
 
 
