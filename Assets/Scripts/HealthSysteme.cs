@@ -19,6 +19,10 @@ public class HealthSysteme : MonoBehaviour
         if(_invincible == false)
         {
             StartCoroutine(InvincibleCoolDown());
+            Oscillator oscillator = gameObject.GetComponent<Oscillator>();
+            if (oscillator == null) return;
+            //TODO Ajouter un KNOCK BACK
+            oscillator.StartOscillator(5);
             _health -= damages;
             _health = Mathf.Clamp(_health,0,_maxHealth);
             CheckCanDie();
@@ -35,7 +39,7 @@ public class HealthSysteme : MonoBehaviour
     {
         if(_health <= 0)
         {
-
+            gameObject.SetActive(false);
         }
     }
 }
