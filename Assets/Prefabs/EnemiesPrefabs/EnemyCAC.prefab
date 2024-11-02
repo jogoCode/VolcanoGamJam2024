@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 6837422514065220150}
   - component: {fileID: 8368272644436048585}
   - component: {fileID: 2201461056265227505}
+  - component: {fileID: 7506047472768338015}
   m_Layer: 0
   m_Name: EnemyCAC
   m_TagString: Enemy
@@ -159,6 +160,8 @@ MonoBehaviour:
   _agent: {fileID: 3621151657173822890}
   _player: {fileID: 0}
   _damages: 1
+  m_enemyStateManager: {fileID: 0}
+  m_enemyVisual: {fileID: 0}
 --- !u!195 &3621151657173822890
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -263,6 +266,29 @@ MonoBehaviour:
   _invincibilityFrames: 0.1
   _invincible: 0
 --- !u!136 &2201461056265227505
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6915123009157320895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &7506047472768338015
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
