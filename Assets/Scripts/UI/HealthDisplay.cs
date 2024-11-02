@@ -17,6 +17,7 @@ public class HealthDisplay : MonoBehaviour
         m_slider = GetComponent<Slider>();
         m_healthSysteme.OnHealthChanged += ChangedBarValue;
         m_slider.maxValue = m_healthSysteme.GetHealth();
+        m_slider.value = m_healthSysteme.GetHealth();
     }
 
     public void ChangedBarValue()

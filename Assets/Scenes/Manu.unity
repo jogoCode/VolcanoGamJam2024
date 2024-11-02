@@ -882,6 +882,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.0030522288
       objectReference: {fileID: 0}
+    - target: {fileID: 8651394449395522635, guid: dd6c6d844b472df4d9037790fe12e295,
+        type: 3}
+      propertyPath: m_impulseFriction
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9075495842808399907, guid: dd6c6d844b472df4d9037790fe12e295,
         type: 3}
       propertyPath: m_LocalPosition.x
