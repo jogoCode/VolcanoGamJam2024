@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5871145232309201448}
   - component: {fileID: 4082242164582781464}
   - component: {fileID: 4149824781544000342}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3769037169364836201}
   - component: {fileID: 4983312502426168798}
   - component: {fileID: 3543533064780230295}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6740151423087326779}
   - component: {fileID: 1964240971017574932}
   - component: {fileID: 1347299690693636471}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

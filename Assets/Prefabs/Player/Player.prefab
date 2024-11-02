@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100058, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100060, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -662,6 +666,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d8f2bd117f276044f94dea5600fb9af1, type: 2}
+    - target: {fileID: 13700000, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
