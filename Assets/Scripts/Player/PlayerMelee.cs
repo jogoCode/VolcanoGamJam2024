@@ -6,6 +6,14 @@ public class PlayerMelee : MonoBehaviour
 {
     [SerializeField] int m_playerDamage = 2;
 
+
+    public void Attack()
+    {
+        PlayerController playerController = GetComponentInParent<PlayerController>();
+        playerController.GetPlayerMovement().ApplyImpulse(playerController.GetModel().transform.forward); // Appliquer l'impulsion vers l'avant
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))

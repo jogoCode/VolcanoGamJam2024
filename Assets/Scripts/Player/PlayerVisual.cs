@@ -62,7 +62,7 @@ public class PlayerVisual : MonoBehaviour
         }
         else if(m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE && m_playerController.ControllerMode.Contains("Mouse"))
         {
-            m_targetRotation = Quaternion.LookRotation(m_playerDir);
+            //m_targetRotation = Quaternion.LookRotation(m_playerDir);
             m_model.transform.LookAt(new Vector3(m_playerController.RaycastFromMousePosition().x,0, m_playerController.RaycastFromMousePosition().z));
         }
   
@@ -119,7 +119,7 @@ public class PlayerVisual : MonoBehaviour
     #region
     public void JustGrounded()
     {
-        Oscillator.StartOscillator(10);
+        Oscillator.StartOscillator(1);
     }
 
 

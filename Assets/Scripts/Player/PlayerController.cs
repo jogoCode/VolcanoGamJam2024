@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerVisual m_playerVisual;
     PlayerStateManager m_playerStateManager;
     PlayerDistance m_playerDistance;
+    PlayerMelee m_playerMelee;
 
 
     Vector2 m_inputDir = Vector2.zero;
@@ -95,7 +96,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.action.triggered){
             OnDashed?.Invoke();
-            Debug.Log("zizizi");
         }
     }
 

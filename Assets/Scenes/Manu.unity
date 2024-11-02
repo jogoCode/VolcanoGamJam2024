@@ -319,6 +319,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8651394449395522635, guid: dd6c6d844b472df4d9037790fe12e295,
+        type: 3}
+      propertyPath: m_dashDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651394449395522635, guid: dd6c6d844b472df4d9037790fe12e295,
+        type: 3}
+      propertyPath: m_impulseFriction
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 9075495842808399907, guid: dd6c6d844b472df4d9037790fe12e295,
         type: 3}
       propertyPath: m_LocalPosition.x

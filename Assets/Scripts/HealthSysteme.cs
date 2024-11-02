@@ -23,6 +23,7 @@ public class HealthSysteme : MonoBehaviour
             if (oscillator == null) return;
             //TODO Ajouter un KNOCK BACK
             oscillator.StartOscillator(5);
+            FeedBackManager.Instance.FreezeFrame(0.05f, 0.5f);
             _health -= damages;
             _health = Mathf.Clamp(_health,0,_maxHealth);
             CheckCanDie();
