@@ -3485,45 +3485,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1031056278159538910, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335615694571482154, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: _health
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335615694571482154, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: _invincibilityFrames
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5884050102138910217, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7261355650459732583, guid: dd6c6d844b472df4d9037790fe12e295,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7261355650459732583, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8651394449395522635, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: m_dashSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8651394449395522635, guid: dd6c6d844b472df4d9037790fe12e295,
-        type: 3}
-      propertyPath: m_dashDuration
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9075495842808399907, guid: dd6c6d844b472df4d9037790fe12e295,
         type: 3}
