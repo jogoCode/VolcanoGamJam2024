@@ -108,9 +108,11 @@ public class PlayerController : MonoBehaviour
         {
             SetWeaponMode(WeaponMode.DISTANCE);
             DistanceMode();
+            m_playerVisual.OnDistanceAnimation();
         }
         if (context.action.WasReleasedThisFrame())
         {
+            m_playerVisual.OffDistanceAnimation();
             SetWeaponMode(WeaponMode.MELEE);
         }
     }
@@ -137,6 +139,7 @@ public class PlayerController : MonoBehaviour
         OnWeaponModeChanged += WeaponModeChanged;
     
         OnDashed += m_playerMovement.Dash;
+       
 
         OnJustGrounded += m_playerVisual.JustGrounded;
         OnMoved += m_playerVisual.MoveAnimation;

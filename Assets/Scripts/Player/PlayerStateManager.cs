@@ -15,6 +15,7 @@ public class PlayerStateManager : MonoBehaviour
         JUMP,
         FALL,
         ATK,
+        DASH,
         DISTANCE,
         POSTATK
     }

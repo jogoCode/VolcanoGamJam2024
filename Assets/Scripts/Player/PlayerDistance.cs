@@ -36,6 +36,7 @@ public class PlayerDistance : MonoBehaviour
         if(m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) { return; }
         if (m_playerController.GetPlayerStateManager().GetState() != PlayerStateManager.PlayerStates.DISTANCE) { return; }
         if (!m_canShoot) { return; }
+        m_playerController.GetPlayerVisual().Oscillator.StartOscillator(3);
         PlayerProjectile playerProjectile = Instantiate(m_bullet,m_bulletOrigin.transform.position,m_playerController.GetModel().transform.rotation);
         m_shootCoroutine = StartCoroutine(ShootCoolDown());
     }

@@ -8,17 +8,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected NavMeshAgent _agent;
     [SerializeField] protected GameObject _player;
     [SerializeField] protected int _damages;
+    [SerializeField] protected EnemyStateManager m_enemyStateManager;
+    [SerializeField] protected EnemyVisual m_enemyVisual;
 
     virtual protected void Start()
     {
-
+        m_enemyStateManager = GetComponentInChildren<EnemyStateManager>();
+        m_enemyVisual = GetComponent<EnemyVisual>();
         _player = FindObjectOfType<PlayerController>().gameObject;
     }
 
     protected void Update()
     {
+       
         if (_agent.enabled == true)
         {
+            
             _agent.SetDestination(_player.transform.position);
         }
     }

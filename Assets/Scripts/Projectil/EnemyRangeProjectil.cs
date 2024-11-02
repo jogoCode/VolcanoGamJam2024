@@ -30,6 +30,7 @@ public class EnemyRangeProjectil : MonoBehaviour
         {
             HealthSysteme playerHealth = other.gameObject.GetComponent<HealthSysteme>();
             playerHealth.TakeDamages(_damages);
+            Destroy(gameObject);
         }
     }
 }

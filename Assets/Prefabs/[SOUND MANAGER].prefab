@@ -54,6 +54,7 @@ MonoBehaviour:
   m_sfxClips:
   - {fileID: 8300000, guid: dedbe3fa6099fe944bd779386122b023, type: 3}
   - {fileID: 8300000, guid: 049bc6f5f2226d54ab28a2f97cacd49a, type: 3}
+  - {fileID: 8300000, guid: 33a3387630b8f2d43a805e9019bdedda, type: 3}
   m_musicVolume: 0.765
   m_sfxVolume: 0.5
 --- !u!82 &3383062174543297704
