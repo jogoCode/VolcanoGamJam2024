@@ -415,7 +415,7 @@ MonoBehaviour:
   m_speed: 8
   m_coyoteTime: 0.1
   m_jumpBufferTime: 0.1
-  m_impulseFriction: 5
+  m_impulseFriction: 15
   m_impulseForce: 15
   m_velocity: {x: 0, y: 0, z: 0}
   m_dashSpeed: 20
