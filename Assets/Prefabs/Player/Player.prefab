@@ -415,7 +415,7 @@ MonoBehaviour:
   m_speed: 8
   m_coyoteTime: 0.1
   m_jumpBufferTime: 0.1
-  m_impulseFriction: 2
+  m_impulseFriction: 15
   m_impulseForce: 15
   m_velocity: {x: 0, y: 0, z: 0}
   m_dashSpeed: 20
@@ -482,9 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a0f1e43ec1cc6408019093a74ac58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _health: 10
   _maxHealth: 100
-  _invincibilityFrames: 0.5
+  _invincibilityFrames: 1
   _invincible: 0
 --- !u!1001 &2941337975290459585
 PrefabInstance:
