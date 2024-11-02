@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnInputAction(InputAction.CallbackContext context)
     {
+        var control = context.control;
+        m_controllerMode = control.ToString();
         if (context.action.triggered){
             OnAction?.Invoke();
         }
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.action.triggered){
             OnDashed?.Invoke();
+            Debug.Log("zizizi");
         }
     }
 
@@ -136,6 +139,7 @@ public class PlayerController : MonoBehaviour
         OnJustGrounded += m_playerVisual.JustGrounded;
         OnMoved += m_playerVisual.MoveAnimation;
         OnAction += m_playerVisual.AttackAnimation;
+
         OnAction += m_playerDistance.CreateProjectile;
 
 

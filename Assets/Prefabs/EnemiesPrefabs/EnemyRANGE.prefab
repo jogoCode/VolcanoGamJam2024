@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1923360825676876341}
   - component: {fileID: 5546617351951841307}
   - component: {fileID: 6267118119180688283}
+  - component: {fileID: 281189419781801050}
+  - component: {fileID: 7144566959102805074}
   m_Layer: 0
   m_Name: EnemyRANGE
   m_TagString: Enemy
@@ -130,6 +132,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &281189419781801050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756520423113839759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a0f1e43ec1cc6408019093a74ac58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 30
+  _maxHealth: 30
+  _invincibilityFrames: 0
+  _invincible: 0
+--- !u!114 &7144566959102805074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756520423113839759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bb30117e89a9944a2efba26277a359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_target: {fileID: 3083859678745455284}
+  m_spring: 500
+  m_damp: 17
 --- !u!1 &3083859678745455284
 GameObject:
   m_ObjectHideFlags: 0

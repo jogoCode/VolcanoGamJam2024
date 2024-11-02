@@ -19,6 +19,8 @@ public class EnemyCAC : MonoBehaviour
         {
             HealthSysteme playerHealth = other.gameObject.GetComponent<HealthSysteme>();
             playerHealth.TakeDamages(_damages);
+
+      
         }
     }
 }

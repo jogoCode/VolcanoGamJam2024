@@ -153,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 inputDir = m_playerController.GetLastInputDir();
         Vector3 dir = new Vector3(inputDir.x, /*m_vVel.y*/0, inputDir.y);
         m_impulseDir = dir;
+ 
         if (m_dashCooldownRemaining <= 0)
         {
             m_playerController.GetPlayerVisual().Oscillator.StartOscillator(10);

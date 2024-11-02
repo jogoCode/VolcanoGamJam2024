@@ -49,7 +49,11 @@ public class PlayerVisual : MonoBehaviour
 
     void RotateModel()
     {
-
+        if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK && m_playerController.ControllerMode.Contains("Mouse"))
+        {
+            m_model.transform.LookAt(new Vector3(m_playerController.RaycastFromMousePosition().x, 0, m_playerController.RaycastFromMousePosition().z));
+            //TODO BUG QUANT ON PASSE MANNETTE A SOURIS
+        }
         if (m_playerController.GetInputDir() != Vector2.zero)
         {
             m_playerDir = new Vector3(m_playerController.GetInputDir().x, 0, m_playerController.GetInputDir().y);
@@ -61,6 +65,7 @@ public class PlayerVisual : MonoBehaviour
             m_targetRotation = Quaternion.LookRotation(m_playerDir);
             m_model.transform.LookAt(new Vector3(m_playerController.RaycastFromMousePosition().x,0, m_playerController.RaycastFromMousePosition().z));
         }
+  
        
        
     }
@@ -72,7 +77,7 @@ public class PlayerVisual : MonoBehaviour
     {
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) return;
-        Oscillator.StartOscillator(15);
+        Oscillator.StartOscillator(5);
         m_animator.SetTrigger("isAttack");
     }
 
@@ -85,8 +90,7 @@ public class PlayerVisual : MonoBehaviour
         {
             speed = 1;
         }
-     
-        Debug.Log(x);
+    
         m_animator.SetFloat("SpeedPercent", speed);
         m_animator.SetFloat("Movement", x);
     }

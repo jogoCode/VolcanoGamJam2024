@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7005413486360172736}
   - component: {fileID: 6935863282857353113}
   - component: {fileID: 5884050102138910217}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,19 @@ MonoBehaviour:
     m_ActionId: 591f4ff5-e9e8-4c53-a57c-ded40b342c6b
     m_ActionName: PlayerController/Attack
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2790354785069309952}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInputDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: faf8fa14-4084-4964-b4af-1e9345d568f8
     m_ActionName: PlayerController/Dash[/Keyboard/shift,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
@@ -435,8 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_target: {fileID: 3610360951919776363}
-  m_spring: 450
-  m_damp: 50
+  m_spring: 900
+  m_damp: 17
 --- !u!114 &2979892683290714271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,8 +478,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a0f1e43ec1cc6408019093a74ac58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
-  _invincibilityFrames: 0
+  _health: 100
+  _maxHealth: 100
+  _invincibilityFrames: 0.5
   _invincible: 0
 --- !u!1001 &7779906793404301348
 PrefabInstance:
@@ -751,7 +764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 400058, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -821,6 +834,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 271173535226870563}
+    - targetCorrespondingSourceObject: {fileID: 100058, guid: 9ce6002518e821e43b4f97c76700fbac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5307036527213707464}
+    - targetCorrespondingSourceObject: {fileID: 100058, guid: 9ce6002518e821e43b4f97c76700fbac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2455182797880602468}
   m_SourcePrefab: {fileID: 100100000, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
 --- !u!1 &7779906793404270334 stripped
 GameObject:
@@ -847,8 +868,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.6602082, z: 1.0473938}
-  m_Center: {x: 0, y: 0.8199427, z: 1.0963275}
+  m_Size: {x: 2.0141659, y: 1.6602082, z: 1.0473938}
+  m_Center: {x: 0.0006917119, y: 0.8199427, z: 1.0963275}
 --- !u!114 &970484628330638681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,6 +909,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6edd7af788b654e9ba03e31010478c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5307036527213707464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779906793404270334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c5aafa042336e459729654f58e2381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerDamage: 2
+--- !u!114 &2455182797880602468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779906793404270334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c5aafa042336e459729654f58e2381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerDamage: 2
 --- !u!4 &7779906793404439198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400058, guid: 9ce6002518e821e43b4f97c76700fbac,
