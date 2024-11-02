@@ -31,7 +31,7 @@ public class PlayerProjectile : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             HealthSysteme healthSysteme = other.gameObject.GetComponent<HealthSysteme>();
-
+            Collider collider = gameObject.GetComponentInChildren<Collider>();
             healthSysteme.TakeDamages(m_projDamage);
             Oscillator oscillator = other.gameObject.GetComponent<Oscillator>();
             if (oscillator == null) return;
@@ -42,6 +42,7 @@ public class PlayerProjectile : MonoBehaviour
 
             gameObject.layer = 5;
             transform.SetParent(other.transform);
+            collider.enabled = false;
         }
     }
 

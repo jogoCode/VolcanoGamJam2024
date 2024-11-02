@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,7 +11,7 @@ public class HealthSysteme : MonoBehaviour
     [SerializeField] private bool _invincible;
 
 
-
+    public event Action OnHealthChanged;
     private void Start()
     {
         _invincible = false;
@@ -28,6 +29,7 @@ public class HealthSysteme : MonoBehaviour
             //FeedBackManager.Instance.FreezeFrame(0.007f, 0.001f);
             FeedBackManager.Instance.InstantiateParticle(FeedBackManager.Instance.m_impactVfx,transform.position,transform.rotation);
             _health -= damages;
+            OnHealthChanged?.Invoke();
             _health = Mathf.Clamp(_health,0,_maxHealth);
             CheckCanDie();
         }
@@ -58,4 +60,7 @@ public class HealthSysteme : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+
+    public int GetHealth() => _health;
 }
