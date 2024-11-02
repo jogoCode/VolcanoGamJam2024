@@ -78,6 +78,7 @@ public class SoundManager : MonoBehaviour
         if (clip != null)
         {
             m_sfxSource.pitch = pitch;
+            if (m_sfxSource.isPlaying && m_sfxSource.clip == clip) return;
             m_sfxSource.PlayOneShot(clip, m_sfxVolume);
         }
         else
