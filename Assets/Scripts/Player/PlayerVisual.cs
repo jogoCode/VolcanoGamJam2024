@@ -66,7 +66,7 @@ public class PlayerVisual : MonoBehaviour
         {
             
             //m_targetRotation = Quaternion.LookRotation(m_playerDir);
-            m_model.transform.LookAt(new Vector3(m_playerController.RaycastFromMousePosition().x,transform.position.y, m_playerController.RaycastFromMousePosition().z));
+            m_model.transform.LookAt(new Vector3(m_playerController.RaycastFromMousePosition().x, m_model.transform.position.y, m_playerController.RaycastFromMousePosition().z));
         }
   
        
