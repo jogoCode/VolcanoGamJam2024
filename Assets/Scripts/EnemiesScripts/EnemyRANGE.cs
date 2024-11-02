@@ -24,6 +24,7 @@ public class EnemyRANGE : Enemy
         transform.LookAt(new Vector3(_player.transform.position.x,0,_player.transform.position.z));
         if(_inSafeZone == false)
         {
+            if (m_enemyStateManager.GetState() == EnemyStateManager.EnemyStates.ATK) { Debug.Log("zizi"); };
             _agent.SetDestination(_player.transform.position);
         }
     }
@@ -50,11 +51,16 @@ public class EnemyRANGE : Enemy
     {
         if(_canShoot == true)
         {
-            Instantiate(_projectile,_shootPoint.transform.position,_shootPoint.transform.rotation);
+            m_enemyVisual.OnAtkAnimation();
             Debug.Log(transform.rotation);
             _canShoot = false;
             yield return new WaitForSeconds(_shootCoolDown);
             _canShoot = true;
         }
+    }
+
+
+    public void CreateProjectile(){
+        Instantiate(_projectile, _shootPoint.transform.position, _shootPoint.transform.rotation);
     }
 }

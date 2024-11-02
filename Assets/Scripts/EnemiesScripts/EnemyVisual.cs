@@ -13,4 +13,10 @@ public class EnemyVisual : MonoBehaviour
     {
         m_animator.SetFloat("Movement",m_agent.speed);
     }
+
+    public void OnAtkAnimation()
+    {
+        m_animator.SetTrigger("isAttack");
+    }
+
 }

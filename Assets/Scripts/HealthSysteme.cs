@@ -20,6 +20,7 @@ public class HealthSysteme : MonoBehaviour
         if(_invincible == false)
         {
             StartCoroutine(InvincibleCoolDown());
+            SoundManager.Instance.PlaySFX("Impact");
             Oscillator oscillator = gameObject.GetComponent<Oscillator>();
             if (oscillator == null) return;
             //TODO Ajouter un KNOCK BACK
