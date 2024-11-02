@@ -213,6 +213,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 591f4ff5-e9e8-4c53-a57c-ded40b342c6b
     m_ActionName: PlayerController/Attack
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: faf8fa14-4084-4964-b4af-1e9345d568f8
+    m_ActionName: PlayerController/Dash[/Keyboard/shift,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerController
@@ -406,6 +410,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6277290953289300089}
+    - targetCorrespondingSourceObject: {fileID: 100058, guid: 9ce6002518e821e43b4f97c76700fbac,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 271173535226870563}
   m_SourcePrefab: {fileID: 100100000, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
 --- !u!1 &7779906793404270334 stripped
 GameObject:
@@ -461,6 +469,18 @@ MonoBehaviour:
   m_target: {fileID: 3610360951919776363}
   m_spring: 500
   m_damp: 100
+--- !u!114 &271173535226870563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779906793404270334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6edd7af788b654e9ba03e31010478c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7779906793404439198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400058, guid: 9ce6002518e821e43b4f97c76700fbac,
