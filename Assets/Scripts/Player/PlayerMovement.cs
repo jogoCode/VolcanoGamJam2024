@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     PlayerController m_playerController;
     CharacterController m_characterController;
+    
 
     [SerializeField] float m_jumpForce = 10;
     [SerializeField] float m_gravity = 9.81f;
@@ -20,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float m_coyoteTime = 0.1f;
     [SerializeField] float m_jumpBufferTime = 0.1f;
 
+
+    [SerializeField] float m_impulseFriction = 2;
+    [SerializeField] float m_impulseForce= 15;
+    [SerializeField] Vector3 m_velocity;
 
     [SerializeField] float m_dashSpeed = 20;
     [SerializeField] float m_dashDuration = 0.2f;
@@ -30,13 +35,14 @@ public class PlayerMovement : MonoBehaviour
     bool m_isDashing;
     bool m_isHit;
     [SerializeField] float m_hitSpeed = 200;
-    Vector3 m_impulseDir;
+    Vector3 m_dashDir;
 
     float m_coyoteTimer;
     float m_jumpBufferTimer = 0;
 
 
     Vector3 m_vVel;
+
 
     [SerializeField] float m_vSpeed = 0;
     [SerializeField] float m_vVelFactor = 4f;
@@ -77,9 +83,22 @@ public class PlayerMovement : MonoBehaviour
         Vector2 inputDir = m_playerController.GetInputDir();
         bool jumped = m_playerController.GetJumped();
         Vector3 dir = new Vector3(inputDir.x,m_vVel.y, inputDir.y);
-
+        ImpulseHandler();
         bool isGrounded =  m_characterController.isGrounded;
         pc.PlayerVisual.CheckGrounded(m_characterController.isGrounded);
+
+        if (!m_characterController.isGrounded)
+        {
+            gravity();
+            m_coyoteTimer -= Time.deltaTime;
+        }
+        else
+        {
+
+            m_vSpeed = 0f;
+            ResetCoyoteTimer();
+        }
+
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) return;
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.POSTATK) return;
@@ -89,24 +108,32 @@ public class PlayerMovement : MonoBehaviour
 
         }
         m_wasGrounded = isGrounded;
-
-
-        if (!m_characterController.isGrounded){      
-            gravity();
-            m_coyoteTimer -= Time.deltaTime;
-        }else{   
-            
-            m_vSpeed = 0f;
-            ResetCoyoteTimer();
-        }
-
-
-
         HandleJumpBuffer();
         Movement(dir, m_speed);       
     }
 
     #endregion
+
+
+    void ImpulseHandler() {
+
+        m_velocity.y = 0;
+        // Appliquer le mouvement en fonction de la vitesse
+        m_characterController.Move(m_velocity * Time.deltaTime);
+
+        // Réduire progressivement la vitesse horizontale avec la "décélération"
+        m_velocity.x = Mathf.Lerp(m_velocity.x, 0, m_impulseFriction * Time.deltaTime);
+        
+        m_velocity.z = Mathf.Lerp(m_velocity.z, 0, m_impulseFriction * Time.deltaTime);
+
+    }
+
+
+    public void ApplyImpulse(Vector3 direction,float impulseForce)
+    {
+        // Ajouter l'impulsion dans la direction donnée
+        m_velocity = direction.normalized * impulseForce;
+    }
 
     void gravity()
     {
@@ -140,19 +167,16 @@ public class PlayerMovement : MonoBehaviour
 
         if(m_isDashing)
         {    
-            m_characterController.Move(m_impulseDir * m_dashSpeed * Time.deltaTime);
+            m_characterController.Move(m_dashDir * m_dashSpeed * Time.deltaTime);
         }
-        if (m_isHit)
-        {
-            m_characterController.Move(m_impulseDir * m_hitSpeed * Time.deltaTime);
-        }
+
     }
 
     public void Dash()
     {
         Vector2 inputDir = m_playerController.GetLastInputDir();
         Vector3 dir = new Vector3(inputDir.x, /*m_vVel.y*/0, inputDir.y);
-        m_impulseDir = dir;
+        m_dashDir = dir;
  
         if (m_dashCooldownRemaining <= 0)
         {
@@ -163,14 +187,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Hit(Vector3 impulseDir)
-    {
-        m_isHit = true;
-        Vector3 dir = impulseDir;
-        m_impulseDir = dir;
-        m_dashTimeRemaining = m_dashDuration;
-        m_dashCooldownRemaining = m_dashCooldown;
-    }
+  
 
     public void HandleJumpBuffer()
     {

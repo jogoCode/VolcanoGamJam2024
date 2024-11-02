@@ -24,6 +24,9 @@ public class EnemyKAMIKAZEBoom : MonoBehaviour
         {
             HealthSysteme playerHealth = other.gameObject.GetComponent<HealthSysteme>();
             playerHealth.TakeDamages(_damages);
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+            playerController.ApplyImpulse(transform.forward, 80f); // impulse force;
+            playerHealth.TakeDamages(_damages);
         }
     }
 }
