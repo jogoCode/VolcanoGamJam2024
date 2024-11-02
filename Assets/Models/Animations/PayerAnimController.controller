@@ -176,7 +176,7 @@ AnimatorStateMachine:
     m_Position: {x: -90, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6590738449225766273}
-    m_Position: {x: 160, y: 460, z: 0}
+    m_Position: {x: 120, y: 460, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1090094787603014646}
     m_Position: {x: 630, y: 350, z: 0}
@@ -222,6 +222,12 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   - m_Name: isAttack
     m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: isDistance
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0

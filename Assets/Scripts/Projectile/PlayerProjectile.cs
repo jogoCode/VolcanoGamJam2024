@@ -18,6 +18,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         AddForce();
         Debug.Log("lets goooo!!");
+        Destroy(gameObject, 2);
     }
 
     public void AddForce()

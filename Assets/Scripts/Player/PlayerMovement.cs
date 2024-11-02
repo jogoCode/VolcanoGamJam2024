@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         PlayerController pc = m_playerController;
         HandleDash();
 
@@ -79,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
         bool isGrounded =  m_characterController.isGrounded;
         pc.PlayerVisual.CheckGrounded(m_characterController.isGrounded);
+        if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
         if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.ATK) return;
         if (!m_wasGrounded && isGrounded) {
             m_vVel.y = -1;
