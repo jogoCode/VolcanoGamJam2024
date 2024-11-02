@@ -50,8 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 8716759931246234470}
   _player: {fileID: 0}
-  _countDown: 0
+  _countDown: 2
   "_touch\xE9": 0
+  _explosion: {fileID: 257591632971076798, guid: 864e7dc35bad2264687130e00b4432e7,
+    type: 3}
 --- !u!195 &8716759931246234470
 NavMeshAgent:
   m_ObjectHideFlags: 0

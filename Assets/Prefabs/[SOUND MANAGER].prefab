@@ -49,8 +49,11 @@ MonoBehaviour:
   m_musicSource: {fileID: 3383062174543297704}
   m_sfxSource: {fileID: 2092623022200173208}
   m_musicClips: []
+  m_minPitch: 0.9
+  m_maxPitch: 1.1
   m_sfxClips:
   - {fileID: 8300000, guid: dedbe3fa6099fe944bd779386122b023, type: 3}
+  - {fileID: 8300000, guid: 049bc6f5f2226d54ab28a2f97cacd49a, type: 3}
   m_musicVolume: 0.765
   m_sfxVolume: 0.5
 --- !u!82 &3383062174543297704
