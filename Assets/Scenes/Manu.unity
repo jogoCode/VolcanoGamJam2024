@@ -2015,27 +2015,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 824273855560600989, guid: 9f3edc6ad3dd1c449b3999d6d2cfedfc,
-        type: 3}
-      propertyPath: m_diedSmoke
-      value: 
-      objectReference: {fileID: 141433446842962268, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
-        type: 3}
-    - target: {fileID: 824273855560600989, guid: 9f3edc6ad3dd1c449b3999d6d2cfedfc,
-        type: 3}
-      propertyPath: m_impactVfx
-      value: 
-      objectReference: {fileID: 5880797563141009103, guid: aa50a32065e631d429a568d97085e677,
-        type: 3}
     - target: {fileID: 7238561623627337114, guid: 9f3edc6ad3dd1c449b3999d6d2cfedfc,
         type: 3}
       propertyPath: m_Name
       value: '[GAME MANAGER]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7238561623627337114, guid: 9f3edc6ad3dd1c449b3999d6d2cfedfc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
