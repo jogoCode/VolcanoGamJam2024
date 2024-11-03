@@ -14,7 +14,7 @@ public class PlayerVisual : MonoBehaviour
     Material m_material;
     [SerializeField] float m_rotationSpeed;
 
-    public const float SPEED_ANIM_RATIO = 10;
+    public const float SPEED_ANIM_RATIO = 8;
 
 
     GameObject m_sarbacane;
