@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject m_mainMenuPannel;
-    [SerializeField] PlayerController m_player;
+    //[SerializeField] PlayerController m_player;
+    [SerializeField] GameObject m_videoScreen;
+    [SerializeField] VideoPlayer m_videoPlayer;
+    GameManager m_gameManager;
+    
     void Start()
     {
-        PlayerInput playerInput = m_player.gameObject.GetComponent<PlayerInput>();
-        playerInput.enabled = false;
+        m_gameManager = GameManager.Instance;
+        m_videoPlayer.loopPointReached += EndReached;
+    
     }
 
     // Update is called once per frame
@@ -23,8 +30,30 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        PlayerInput playerInput = m_player.gameObject.GetComponent<PlayerInput>();
-        playerInput.enabled = true;
-        m_mainMenuPannel.SetActive(false);
+        StartCoroutine(Transition());
+     
+
     }
+    public void Quit()
+    {
+        Application.Quit();     
+    }
+
+    IEnumerator Transition()
+    {
+        m_gameManager.m_sceneTransition.SetTrigger("Start");
+        yield return new WaitForSeconds(0.5f);
+        m_gameManager.m_sceneTransition.SetTrigger("End");
+        m_videoScreen.SetActive(true);
+        m_videoPlayer.Play();
+    }
+
+
+    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    {
+        vp.playbackSpeed = vp.playbackSpeed / 10.0F;
+        m_gameManager.LoadScene(1);
+    }
+
+
 }
