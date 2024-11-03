@@ -21,14 +21,12 @@ public class EnemyKAMIKAZE : Enemy
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;
             _countDown -= Time.deltaTime;
-            _agent.enabled = false;
-           
+            _agent.enabled = false;     
         }
         else
         {
             if (_agent.enabled == true)
             {
-
                 _agent.SetDestination(_player.transform.position);
             }
         }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public Animator m_sceneTransition;
+    GameObject m_videoDeFin;
     void Awake()
     {
        

@@ -31,9 +31,11 @@ public class HealthSysteme : MonoBehaviour
             StartCoroutine(InvincibleCoolDown());
             SoundManager.Instance.PlaySFX("Impact");
             Oscillator oscillator = gameObject.GetComponent<Oscillator>();
-            if (oscillator == null) return;
-            //TODO Ajouter un KNOCK BACK
-            oscillator.StartOscillator(5);
+            if (oscillator != null)
+            {
+                //TODO Ajouter un KNOCK BACK
+                oscillator.StartOscillator(5);
+            }
             //FeedBackManager.Instance.FreezeFrame(0.007f, 0.001f);
             FeedBackManager.Instance.InstantiateParticle(FeedBackManager.Instance.m_impactVfx,new Vector3(transform.position.x, transform.position.y+0.5f, transform.position.z),transform.rotation);
             _health -= damages;

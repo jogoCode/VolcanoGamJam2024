@@ -24,9 +24,11 @@ public class EnemyRANGE : Enemy
         transform.LookAt(new Vector3(_player.transform.position.x,0,_player.transform.position.z));
         if(_inSafeZone == false)
         {
-            if (m_enemyStateManager.GetState() == EnemyStateManager.EnemyStates.ATK) { Debug.Log("zizi"); };
-            if (!_agent.enabled) return;
-            _agent.SetDestination(_player.transform.position);
+
+            if (_agent.enabled)
+            {
+                _agent.SetDestination(_player.transform.position);
+            }
         }
     }
     private void OnTriggerStay(Collider other)

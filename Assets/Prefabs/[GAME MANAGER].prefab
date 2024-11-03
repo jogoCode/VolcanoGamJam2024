@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &746029710991904693
 Transform:
   m_ObjectHideFlags: 0
@@ -149,7 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_explosionVfx: {fileID: 0}
-  m_impactVfx: {fileID: 19800000, guid: d1b0c5d00950365479403f8dd3adb0fd, type: 3}
+  m_impactVfx: {fileID: 5880797563141009103, guid: aa50a32065e631d429a568d97085e677,
+    type: 3}
   m_diedSmoke: {fileID: 141433446842962268, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
     type: 3}
 --- !u!114 &2493469584028633845
