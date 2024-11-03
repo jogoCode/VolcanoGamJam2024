@@ -25,9 +25,13 @@ public class SoundManager : MonoBehaviour
     public float m_maxPitch;  // pith
     public List<AudioClip> m_sfxClips = new List<AudioClip>(); // Liste d'effets sonores
 
+
     [Header("Volume Settings")]
     [Range(0, 1)] public float m_musicVolume = 0.5f;
     [Range(0, 1)] public float m_sfxVolume = 0.5f;
+
+
+    
 
     private void Awake()
     {
@@ -56,6 +60,13 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+
+    public void Update()
+    {
+
+        Debug.Log(m_sfxSource.isPlaying);
+    }
+
     public void PlayMusic(AudioClip musicClip)
     {
         if (musicClip == null) return;
@@ -77,8 +88,8 @@ public class SoundManager : MonoBehaviour
         float pitch = Random.Range(m_minPitch, m_maxPitch);
         if (clip != null)
         {
+            if (m_sfxSource.clip == clip && m_sfxSource.isPlaying) return;
             m_sfxSource.pitch = pitch;
-            if (m_sfxSource.isPlaying && m_sfxSource.clip == clip) return;
             m_sfxSource.PlayOneShot(clip, m_sfxVolume);
         }
         else

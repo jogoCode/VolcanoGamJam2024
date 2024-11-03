@@ -59,9 +59,10 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator Transition()
     {
-        m_gameManager.m_sceneTransition.SetTrigger("Start");
-        yield return new WaitForSeconds(0.5f);
         m_gameManager.m_sceneTransition.SetTrigger("End");
+        yield return new WaitForSeconds(0.5f);
+        m_gameManager.m_sceneTransition.SetTrigger("Start");
+       
         m_videoScreen.SetActive(true);
         m_videoPlayer.Play();
     }

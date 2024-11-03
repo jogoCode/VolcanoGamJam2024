@@ -35,9 +35,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadSceneCoroutine(int scene)
     {
-        m_sceneTransition.SetTrigger("Start");
-        yield return new WaitForSeconds(1f);
         m_sceneTransition.SetTrigger("End");
+        yield return new WaitForSeconds(1f);
+        m_sceneTransition.SetTrigger("Start");
         SceneManager.LoadScene(scene);
     }
 }
