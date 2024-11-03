@@ -20,17 +20,31 @@ public class PlayerDistance : MonoBehaviour
     Coroutine m_shootCoroutine;
 
     [SerializeField] PlayerController m_playerController;
-   
+    public event Action OnAmmoChanged;
+
+
+    public int Ammo
+    {
+        get {return m_ammo ;}
+    }
 
     void Start()
     {
         m_playerController = GetComponent<PlayerController>();
         OnProjectile += CreateProjectile;
+        OnAmmoChanged?.Invoke();
     }
 
     void Update()
     {
         
+    }
+
+
+    public void IncreaseAmmo(int count)
+    {
+        m_ammo += count;
+        OnAmmoChanged?.Invoke();
     }
 
 
@@ -41,7 +55,7 @@ public class PlayerDistance : MonoBehaviour
         if (m_playerController.GetPlayerStateManager().GetState() != PlayerStateManager.PlayerStates.DISTANCE) { return; }
         if (!m_canShoot) { return; }
         m_ammo--;
-
+        OnAmmoChanged?.Invoke();
         m_ammo = Mathf.Clamp(m_ammo,0,m_maxAmmo);
         m_playerController.GetPlayerVisual().Oscillator.StartOscillator(3);
         SoundManager.Instance.PlaySFX("Sarbacane");

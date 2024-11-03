@@ -16,6 +16,13 @@ public class HealthSysteme : MonoBehaviour
     {
         _invincible = false;
     }
+
+
+    public void IncreaseHealth(int amount)
+    {
+        _health += amount;
+        OnHealthChanged?.Invoke();
+    }
     public void TakeDamages(int damages)
     {
         if(_invincible == false)
