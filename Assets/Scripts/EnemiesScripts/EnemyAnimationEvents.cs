@@ -14,4 +14,9 @@ public class EnemyAnimationEvents : MonoBehaviour
     {
         m_enemyRange.CreateProjectile();
     }
+
+    public void PlaySound(string sound)
+    {
+        SoundManager.Instance.PlaySFX(sound);
+    }
 }

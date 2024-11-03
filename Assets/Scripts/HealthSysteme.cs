@@ -58,6 +58,12 @@ public class HealthSysteme : MonoBehaviour
         if(_health <= 0)
         {
             gameObject.SetActive(false);
+            FeedBackManager.Instance.InstantiateParticle(FeedBackManager.Instance.m_diedSmoke,transform.position,transform.rotation);
+            if(gameObject.GetComponent<PlayerController>() != null)
+            {
+                GameManager gm = GameManager.Instance;
+                gm.LoadScene(2);
+            }
         }
     }
 

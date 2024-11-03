@@ -12,6 +12,8 @@ public class EnemyRangeProjectil : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         StartCoroutine(LifeTime());
+        Oscillator oscillator = GetComponent<Oscillator>();
+        oscillator.StartOscillator(15);
     }
     void Update()
     {
@@ -30,6 +32,7 @@ public class EnemyRangeProjectil : MonoBehaviour
         {
             HealthSysteme playerHealth = other.gameObject.GetComponent<HealthSysteme>();
             playerHealth.TakeDamages(_damages);
+            SoundManager.Instance.PlaySFX("Slurp");
             Destroy(gameObject);
         }
     }

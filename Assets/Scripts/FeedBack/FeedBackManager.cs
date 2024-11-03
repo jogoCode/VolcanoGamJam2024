@@ -9,7 +9,7 @@ public class FeedBackManager : MonoBehaviour
 
     public ParticleSystem m_explosionVfx;
     public ParticleSystem m_impactVfx;
-
+    public ParticleSystem m_diedSmoke;
     Coroutine m_FreezeFrameCoroutine;
 
     void Awake()
@@ -17,7 +17,7 @@ public class FeedBackManager : MonoBehaviour
         Debug.Log(Time.timeScale);
         if (Instance != null)
         {
-            Debug.LogError("Plus d'une instance feedback manager dans la scene");
+            Debug.LogWarning("Plus d'une instance feedback manager dans la scene");
             Destroy(gameObject);
             return;
         }
