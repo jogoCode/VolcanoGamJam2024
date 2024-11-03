@@ -178,9 +178,10 @@ public class PlayerMovement : MonoBehaviour
         Vector2 inputDir = m_playerController.GetLastInputDir();
         Vector3 dir = new Vector3(inputDir.x, /*m_vVel.y*/0, inputDir.y);
         m_dashDir = dir;
- 
+        
         if (m_dashCooldownRemaining <= 0)
         {
+            if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
             m_playerController.GetPlayerVisual().Oscillator.StartOscillator(10);
             m_isDashing = true;
             m_dashTimeRemaining = m_dashDuration;

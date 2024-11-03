@@ -46,4 +46,16 @@ public class PlayerProjectile : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.GetComponentInParent<PlayerController>())
+        {
+            Debug.Log(collision.gameObject.name);
+            m_rb.velocity = Vector3.zero;
+            m_rb.angularVelocity = Vector3.zero;
+
+        }
+        m_rb.isKinematic = true;
+    }
+
 }

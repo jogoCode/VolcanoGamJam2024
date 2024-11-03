@@ -62,5 +62,6 @@ public class EnemyRANGE : Enemy
 
     public void CreateProjectile(){
         Instantiate(_projectile, _shootPoint.transform.position, _shootPoint.transform.rotation);
+        SoundManager.Instance.PlaySFX("Slurp");
     }
 }

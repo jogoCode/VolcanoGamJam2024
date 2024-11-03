@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5580600156105242243}
   - component: {fileID: 3835481090876763049}
   - component: {fileID: 4859628176261851287}
+  - component: {fileID: 1639318106511504792}
   m_Layer: 0
   m_Name: EnemyRangeProjectil
   m_TagString: Untagged
@@ -150,6 +151,21 @@ MonoBehaviour:
   _speed: 15
   _lifeTime: 2
   _damages: 1
+--- !u!114 &1639318106511504792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788171240265731548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bb30117e89a9944a2efba26277a359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_target: {fileID: 1285364712840298875}
+  m_spring: 500
+  m_damp: 17
 --- !u!1001 &2096392317184654378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +259,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74e865d88bb6ef24c8a35daa0f9f62d1, type: 3}
+--- !u!1 &1285364712840298875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 74e865d88bb6ef24c8a35daa0f9f62d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2096392317184654378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1917786640686472129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74e865d88bb6ef24c8a35daa0f9f62d1,
