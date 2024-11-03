@@ -24,7 +24,7 @@ public class EnemyKAMIKAZE : Enemy
         if (_countDown <= 0)
         {
             Instantiate(_explosion, transform.position + new Vector3(0,1,0), transform.rotation);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     private void OnTriggerEnter(Collider other)
