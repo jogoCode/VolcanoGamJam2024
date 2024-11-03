@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
        
         if (Instance != null)
         {
-            Debug.LogError("Plus d'une instance game manager dans la scene");
+            Debug.LogWarning("Plus d'une instance game manager dans la scene");
             Destroy(gameObject);
             return;
         }
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     IEnumerator LoadSceneCoroutine(int scene)
     {
         m_sceneTransition.SetTrigger("Start");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         m_sceneTransition.SetTrigger("End");
         SceneManager.LoadScene(scene);
     }

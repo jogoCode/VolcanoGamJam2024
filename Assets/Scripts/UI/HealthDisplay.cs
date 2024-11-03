@@ -23,5 +23,8 @@ public class HealthDisplay : MonoBehaviour
     public void ChangedBarValue()
     {
         m_slider.value = m_healthSysteme.GetHealth();
+
+
+        //TODO IL DREVRAIT PAS ËTRE LA
     }
 }

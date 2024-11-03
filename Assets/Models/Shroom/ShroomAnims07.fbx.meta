@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Atk01
+      name: Die
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
-      firstFrame: 403
-      lastFrame: 435
+      firstFrame: 283
+      lastFrame: 286
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

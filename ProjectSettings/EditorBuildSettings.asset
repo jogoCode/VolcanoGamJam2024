@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Manu.unity
     guid: db0de344ad4bc0d43a92cc4404ad43ca
   - enabled: 1
+    path: Assets/Scenes/DeadScreen.unity
+    guid: bfcd8b295d266084ba942ba7eb166f22
+  - enabled: 1
     path: Assets/Scenes/Tanguy.unity
     guid: 07ae2a9efe8239f46bb9525dc4218359
   - enabled: 0

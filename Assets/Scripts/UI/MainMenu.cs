@@ -24,19 +24,37 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(m_videoPlayer == null) return;   
+        if(m_videoPlayer.isPlaying) {
+            if (Input.GetButton("Jump"))
+            {
+                GameManager.Instance.LoadScene(1);
+                m_videoPlayer.Stop();
+                StopAllCoroutines();
+            }
         
+        }
     }
 
 
     public void Play()
     {
         StartCoroutine(Transition());
-     
-
     }
+
     public void Quit()
     {
         Application.Quit();     
+    }
+
+    public void BackToMainMenu()
+    {
+        m_gameManager.LoadScene(0);
+    }
+
+    public void Restart()
+    {
+        m_gameManager.LoadScene(1);
     }
 
     IEnumerator Transition()

@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ALREAYD A SOUND MANAGER INSTANCE");
+            Debug.LogWarning("ALREAYD A SOUND MANAGER INSTANCE");
             Destroy(gameObject);
         }
 
