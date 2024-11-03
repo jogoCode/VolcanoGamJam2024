@@ -181,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (m_dashCooldownRemaining <= 0)
         {
+            SoundManager.Instance.PlaySFX("Dash");
             if (m_playerController.GetPlayerStateManager().GetState() == PlayerStateManager.PlayerStates.DISTANCE) return;
             m_playerController.GetPlayerVisual().Oscillator.StartOscillator(10);
             m_isDashing = true;

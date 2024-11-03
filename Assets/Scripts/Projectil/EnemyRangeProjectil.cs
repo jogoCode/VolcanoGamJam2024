@@ -14,6 +14,7 @@ public class EnemyRangeProjectil : MonoBehaviour
         StartCoroutine(LifeTime());
         Oscillator oscillator = GetComponent<Oscillator>();
         oscillator.StartOscillator(15);
+        SoundManager.Instance.PlaySFX("LaunchSlurp");
     }
     void Update()
     {

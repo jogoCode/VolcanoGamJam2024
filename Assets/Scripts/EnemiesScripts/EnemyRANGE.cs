@@ -25,6 +25,7 @@ public class EnemyRANGE : Enemy
         if(_inSafeZone == false)
         {
             if (m_enemyStateManager.GetState() == EnemyStateManager.EnemyStates.ATK) { Debug.Log("zizi"); };
+            if (!_agent.enabled) return;
             _agent.SetDestination(_player.transform.position);
         }
     }

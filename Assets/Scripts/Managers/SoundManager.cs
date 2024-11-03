@@ -61,11 +61,6 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public void Update()
-    {
-
-        Debug.Log(m_sfxSource.isPlaying);
-    }
 
     public void PlayMusic(AudioClip musicClip)
     {
@@ -74,7 +69,7 @@ public class SoundManager : MonoBehaviour
         m_musicSource.clip = musicClip;
         m_musicSource.loop = true;
         m_musicSource.Play();
-        Debug.Log("jiojij");
+
     }
 
     public void StopMusic()

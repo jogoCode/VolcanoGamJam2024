@@ -21,6 +21,7 @@ public class HealthSysteme : MonoBehaviour
     public void IncreaseHealth(int amount)
     {
         _health += amount;
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
         OnHealthChanged?.Invoke();
     }
     public void TakeDamages(int damages)
@@ -34,7 +35,7 @@ public class HealthSysteme : MonoBehaviour
             //TODO Ajouter un KNOCK BACK
             oscillator.StartOscillator(5);
             //FeedBackManager.Instance.FreezeFrame(0.007f, 0.001f);
-            FeedBackManager.Instance.InstantiateParticle(FeedBackManager.Instance.m_impactVfx,transform.position,transform.rotation);
+            FeedBackManager.Instance.InstantiateParticle(FeedBackManager.Instance.m_impactVfx,new Vector3(transform.position.x, transform.position.y+0.5f, transform.position.z),transform.rotation);
             _health -= damages;
             OnHealthChanged?.Invoke();
             _health = Mathf.Clamp(_health,0,_maxHealth);
