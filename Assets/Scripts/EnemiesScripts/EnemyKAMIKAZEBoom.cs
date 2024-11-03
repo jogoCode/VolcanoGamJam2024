@@ -9,12 +9,14 @@ public class EnemyKAMIKAZEBoom : MonoBehaviour
     private void Start()
     {
         Instantiate(_boomEffect,transform.position, Quaternion.identity);
+        SoundManager.Instance.PlaySFX("EnemyExplosion");
     }
     private void Update()
     {
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0)
         {
+            
             Destroy(gameObject);
         }
     }

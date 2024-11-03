@@ -11,6 +11,7 @@ public class PickupDard : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerDistance playerDistance = other.gameObject.GetComponent<PlayerDistance>();
+            SoundManager.Instance.PlaySFX("Munition+");
             playerDistance.IncreaseAmmo(m_value);
             Destroy(gameObject);
         }

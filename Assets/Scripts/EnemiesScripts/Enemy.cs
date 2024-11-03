@@ -8,8 +8,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected NavMeshAgent _agent;
     [SerializeField] protected GameObject _player;
     [SerializeField] protected int _damages;
-    [SerializeField] protected EnemyStateManager m_enemyStateManager;
+    [SerializeField] public EnemyStateManager m_enemyStateManager;
     [SerializeField] protected EnemyVisual m_enemyVisual;
+
+
+    public EnemyVisual Visual
+    {
+        get { return m_enemyVisual; }
+    }
+    public int DAMAGE
+    {
+        get { return _damages; }
+    }
 
     virtual protected void Start()
     {
@@ -30,8 +40,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+    
         if (other.tag == "Player")
         {
+            
+            return;
             HealthSysteme playerHealth = other.gameObject.GetComponent<HealthSysteme>();
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             playerController.ApplyImpulse(transform.forward, 15f);

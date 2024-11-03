@@ -11,6 +11,7 @@ public class PickupHeard : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             HealthSysteme playerDistance = other.gameObject.GetComponent<HealthSysteme>();
+            SoundManager.Instance.PlaySFX("Coeur+");
             playerDistance.IncreaseHealth(m_value);
             Destroy(gameObject);
         }

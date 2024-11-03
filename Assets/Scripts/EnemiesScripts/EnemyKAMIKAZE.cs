@@ -13,13 +13,25 @@ public class EnemyKAMIKAZE : Enemy
         _touché = false;    
     }
 
-    private void Update()
+    new private void Update()
     {
         if (_touché == true)
         {
+            Rigidbody rb  = GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
             _countDown -= Time.deltaTime;
+            _agent.enabled = false;
+           
         }
-        base.Update();
+        else
+        {
+            if (_agent.enabled == true)
+            {
+
+                _agent.SetDestination(_player.transform.position);
+            }
+        }
   
         if (_countDown <= 0)
         {
